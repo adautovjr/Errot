@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://0e4ukwe43nrw"]
+
+[ext_resource type="Script" path="res://scripts/MovableObject.gd" id="1_l2n11"]
+[ext_resource type="Texture2D" uid="uid://cg67bkty81sm1" path="res://assets/Kings and Pigs/Sprites/08-Box/Idle.png" id="2_ipbd0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_424f6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
+size = Vector2(38, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
+size = Vector2(38, 28)
+
+[node name="Crate" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 11
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_424f6")
+script = ExtResource("1_l2n11")
+interaction_label = "!!!"
+interaction_type = "move"
+interaction_value = "5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -4.76837e-07)
+scale = Vector2(2.01345, 2.01172)
+texture = ExtResource("2_ipbd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_etwut")
+
+[node name="InteractableArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_jp4yi")

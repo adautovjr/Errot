@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://3cscn607k7ju"]
+[gd_scene load_steps=28 format=3 uid="uid://wc7ov6dbhy0p"]
 
 [ext_resource type="Texture2D" uid="uid://cc6bp57yacj6a" path="res://assets/Kings and Pigs/Sprites/03-Pig/Idle (34x28).png" id="1_pchp4"]
 [ext_resource type="Script" path="res://scripts/playermovement.gd" id="1_yxpks"]
 [ext_resource type="Texture2D" uid="uid://cosnpiop3441s" path="res://assets/Kings and Pigs/Sprites/03-Pig/Jump (34x28).png" id="3_dx2ji"]
 [ext_resource type="Texture2D" uid="uid://brwt4y26ywc1k" path="res://assets/Kings and Pigs/Sprites/03-Pig/Run (34x28).png" id="4_vyhbx"]
+[ext_resource type="Script" path="res://scripts/playerdetection.gd" id="5_7wj63"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wr374"]
 atlas = ExtResource("1_pchp4")
@@ -150,17 +151,61 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mj3h4"]
+radius = 9.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tar3q"]
 radius = 6.0
-height = 16.0
+height = 28.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_nbxs8"]
+font_size = 10
+shadow_color = Color(0, 0, 0, 0.588235)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_yxpks")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, -9.53674e-07)
+scale = Vector2(1.45, 1.45)
 sprite_frames = SubResource("SpriteFrames_5wnjs")
-animation = &"run"
-frame_progress = 0.615006
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_mj3h4")
+
+[node name="DetectionArea2D" type="Area2D" parent="."]
+position = Vector2(-13, -3)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("5_7wj63")
+metadata/_edit_group_ = true
+
+[node name="DetectionCollision" type="CollisionShape2D" parent="DetectionArea2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CapsuleShape2D_tar3q")
+
+[node name="InteractionLabel" type="Label" parent="."]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -26.0
+offset_right = 86.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_nbxs8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[connection signal="area_entered" from="DetectionArea2D" to="DetectionArea2D" method="_on_area_entered"]
+[connection signal="area_exited" from="DetectionArea2D" to="DetectionArea2D" method="_on_area_exited"]
