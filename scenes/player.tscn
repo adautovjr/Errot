@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cosnpiop3441s" path="res://assets/Kings and Pigs/Sprites/03-Pig/Jump (34x28).png" id="3_dx2ji"]
 [ext_resource type="Texture2D" uid="uid://brwt4y26ywc1k" path="res://assets/Kings and Pigs/Sprites/03-Pig/Run (34x28).png" id="4_vyhbx"]
 [ext_resource type="Script" path="res://scripts/playerdetection.gd" id="5_7wj63"]
+[ext_resource type="LabelSettings" uid="uid://dr3emear65uue" path="res://configs/font.tres" id="6_pfw42"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wr374"]
 atlas = ExtResource("1_pchp4")
@@ -158,10 +159,6 @@ height = 26.0
 radius = 6.0
 height = 28.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_nbxs8"]
-font_size = 10
-shadow_color = Color(0, 0, 0, 0.588235)
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 13
@@ -202,7 +199,7 @@ offset_right = 86.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = SubResource("LabelSettings_nbxs8")
+label_settings = ExtResource("6_pfw42")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1

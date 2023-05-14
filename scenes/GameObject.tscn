@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cg67bkty81sm1" path="res://assets/Kings and Pigs/Sprites/08-Box/Idle.png" id="1_x00bp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
-size = Vector2(19, 14)
+size = Vector2(29, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
-size = Vector2(19, 14)
+size = Vector2(29, 28)
 
 [node name="GameObject" type="RigidBody2D"]
 collision_layer = 8

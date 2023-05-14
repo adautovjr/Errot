@@ -16,6 +16,7 @@ collision_layer = 8
 collision_mask = 11
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_424f6")
+contact_monitor = true
 script = ExtResource("1_l2n11")
 interaction_label = "!!!"
 interaction_type = "move"
@@ -26,7 +27,7 @@ position = Vector2(2.38419e-07, -4.76837e-07)
 scale = Vector2(2.01345, 2.01172)
 texture = ExtResource("2_ipbd0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="ObjectCollider" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_etwut")
 
@@ -38,3 +39,6 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_jp4yi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="InteractableArea" to="." method="_on_interactable_area_input_event"]
