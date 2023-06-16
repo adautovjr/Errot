@@ -1,4 +1,4 @@
-class_name InteractableObject extends RigidBody2D
+class_name InteractableObject extends CharacterBody2D
 
 @export var interaction_label = "none"
 @export var interaction_type = "none"

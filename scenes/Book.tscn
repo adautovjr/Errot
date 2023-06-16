@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqgq33nq1amtg"]
+[gd_scene load_steps=10 format=3 uid="uid://bqgq33nq1amtg"]
 
-[ext_resource type="PackedScene" uid="uid://cbtsjagbfjcpi" path="res://scenes/GameObject.tscn" id="1_h88sq"]
 [ext_resource type="Script" path="res://scripts/Book.gd" id="2_71o02"]
 [ext_resource type="LabelSettings" uid="uid://dr3emear65uue" path="res://configs/font.tres" id="3_0ykss"]
 [ext_resource type="Texture2D" uid="uid://dv2qalrf4gnsh" path="res://icon.svg" id="3_g2cmd"]
+[ext_resource type="Theme" uid="uid://bb30ywpk5cjeq" path="res://Theme.tres" id="4_lrdey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
+size = Vector2(171, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
+size = Vector2(171, 170)
 
 [sub_resource type="Animation" id="Animation_adh87"]
 length = 0.001
@@ -101,27 +107,43 @@ _data = {
 "read_book": SubResource("Animation_q5nby")
 }
 
-[node name="Book" instance=ExtResource("1_h88sq")]
+[node name="Book" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 11
 script = ExtResource("2_71o02")
 interaction_label = "Read"
 interaction_type = "method"
 interaction_value = "telekinesis"
 
-[node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.234375, 0.234375)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.32813, 1.32813)
 texture = ExtResource("3_g2cmd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_etwut")
+
+[node name="InteractableArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_jp4yi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_w6wgu")
 }
 
-[node name="Label1" type="Label" parent="." index="4"]
-visible = false
+[node name="Label1" type="Label" parent="."]
 offset_left = -129.0
-offset_top = -42.0
+offset_top = -115.0
 offset_right = 131.0
-offset_bottom = -19.0
+offset_bottom = -92.0
+theme = ExtResource("4_lrdey")
+theme_override_font_sizes/font_size = 24
 text = "You just learnt a new spell!"
 label_settings = ExtResource("3_0ykss")
 horizontal_alignment = 1
@@ -129,11 +151,13 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Label2" type="Label" parent="." index="5"]
+[node name="Label2" type="Label" parent="."]
 offset_left = -129.0
-offset_top = -42.0
+offset_top = -115.0
 offset_right = 131.0
-offset_bottom = -19.0
+offset_bottom = -92.0
+theme = ExtResource("4_lrdey")
+theme_override_font_sizes/font_size = 24
 text = "Try moving objects around with your mouse!"
 label_settings = ExtResource("3_0ykss")
 horizontal_alignment = 1

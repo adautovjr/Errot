@@ -1,7 +1,9 @@
 extends CharacterBody2D
+class_name Player
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 800.0
+const JUMP_VELOCITY = -1200.0
+const PUSH_FORCE = 800.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -10,6 +12,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var interactions_in_range: Array[InteractableObject] = []
 var is_moving = false
+var is_using_magic = false
+
+
+func _ready():
+	Events.connect("is_using_magic", _handle_using_magic)
 
 
 func _physics_process(delta):
@@ -23,19 +30,36 @@ func _physics_process(delta):
 
 func _get_animation(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
-		animated_sprite.play("jump")
-
-	else:
-		if velocity.x == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("run")
+		velocity.y += gravity * delta * 2
+		if velocity.y <= 0:
+			animated_sprite.play("jump")
+			return 
+		animated_sprite.play("fall")
+		return 
+	if is_using_magic:
+		animated_sprite.play("magic")
+		return
+	if velocity.x == 0:
+		if is_moving:
+			animated_sprite.play("idle_push")
+			return 
+		animated_sprite.play("idle")
+		return 
+	if is_moving:
+		if velocity.x < 0:
+			animated_sprite.play("push")
+			return 
+		animated_sprite.play("pull")
+		return 
+	animated_sprite.play("run")
+	return 
 
 
 ############## Movement ##############
 
 func _get_action():
+	if is_using_magic:
+		return
 	if Input.is_action_pressed("interact"):
 		_on_interaction()
 
@@ -51,7 +75,8 @@ func _get_action():
 	var direction = Input.get_axis("walk_left", "walk_right")
 	if direction:
 		velocity.x = direction * SPEED
-		animated_sprite.flip_h = clamp(velocity.x, 0, 1)
+		if not is_moving:
+			animated_sprite.flip_h = clamp(-velocity.x, 0, 1)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -62,9 +87,9 @@ func _reset_detection_area_position(direction):
 		return
 
 	if (velocity.x > 0):
-		detection_area.position = Vector2(13, -3)
+		detection_area.position = Vector2(70, -3)
 	else:
-		detection_area.position = Vector2(-13, -3)
+		detection_area.position = Vector2(-70, -3)
 
 ############## Interactions ##############
 
@@ -77,10 +102,14 @@ func _on_interaction():
 	match current_interaction.interaction_type:
 		"move":
 			var force = Input.get_axis("walk_left", "walk_right")
-			current_interaction.interaction_method(force)
+			current_interaction.interaction_method(force * PUSH_FORCE)
 			is_moving = true
 		"method":
 			print("call method")
 			current_interaction.interaction_method(null)
 		"none":
 			print("Undefined interaction")
+
+
+func _handle_using_magic(value):
+	is_using_magic = value

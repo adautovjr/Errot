@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://0e4ukwe43nrw"]
+[gd_scene load_steps=5 format=3 uid="uid://cibd1vxm17261"]
 
-[ext_resource type="Script" path="res://scripts/MovableObject.gd" id="1_l2n11"]
-[ext_resource type="Texture2D" uid="uid://dl4py775nhtl6" path="res://assets/crate.png" id="2_lv81o"]
+[ext_resource type="Script" path="res://scripts/MovableObject.gd" id="1_h25s1"]
+[ext_resource type="Texture2D" uid="uid://dl4py775nhtl6" path="res://assets/crate.png" id="2_0tnhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
 size = Vector2(302, 254)
@@ -9,17 +9,17 @@ size = Vector2(302, 254)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
 size = Vector2(302, 254)
 
-[node name="MovableObject" type="CharacterBody2D"]
+[node name="Crate" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 11
-script = ExtResource("1_l2n11")
+script = ExtResource("1_h25s1")
 interaction_label = "!!!"
 interaction_type = "move"
 interaction_value = "5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.38419e-07, -4.76837e-07)
-texture = ExtResource("2_lv81o")
+texture = ExtResource("2_0tnhx")
 
 [node name="ObjectCollider" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)

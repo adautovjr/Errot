@@ -1,27 +1,48 @@
 class_name Moveable_Object extends InteractableObject
 
+const GRIP = 0.15
+const WEIGHT = 0.25
+
 var holdingObject = false
 var drop_point
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	drop_point = global_position
+	
 
 func interaction_method(value):
-	position.x += value * 1.65
+	slide(Vector2(value, 0.0))
+	pass
 
 
 func _on_interactable_area_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click") and GameManager.active_spell == "telekinesis":
+		for index in get_slide_collision_count():
+			if get_slide_collision(index).get_collider() is Player:
+				return
 		holdingObject = true
-		gravity_scale = 0
 		drop_point = global_position
+		Events.emit_signal("is_using_magic", true)
 
-func _physics_process(delta):
-	if holdingObject:
-		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
-		# look_at(get_global_mouse_position())
-	# elif get_colliding_bodies().size() > 0:
-		# global_position = lerp(global_position, drop_point, 10 * delta)
+func _physics_process(_delta):
+	if not holdingObject:
+		if not is_on_floor():
+			velocity.y += gravity * WEIGHT
+		else:
+			velocity.y = 0.0
+			velocity.x = lerp(velocity.x, 0.0, GRIP)
+		move_and_slide()
+		return
+	
+	var min_distance = 10
+	var max_distance = 100
+	var force_direction = 5 * ((get_global_mouse_position() - global_position))
+	var len = force_direction.length()
+	var norm = force_direction.normalized()
+	
+	velocity = force_direction
+	move_and_slide()
 
 
 func _input(event):
@@ -30,10 +51,14 @@ func _input(event):
 			drop()
 
 
+func slide(direction):
+	velocity.x = direction.x
+
+
 func drop():
 	print("Dropped")
 	holdingObject = false
-	gravity_scale = 1
+	Events.emit_signal("is_using_magic", false)
 
 
 func _on_body_entered(_body):
