@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dl4py775nhtl6" path="res://assets/crate.png" id="2_lv81o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
-size = Vector2(302, 254)
+size = Vector2(302, 252)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
-size = Vector2(302, 254)
+size = Vector2(302, 252)
 
 [node name="MovableObject" type="CharacterBody2D"]
 collision_layer = 8

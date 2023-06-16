@@ -1,28 +1,29 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlvny0qchel5f"]
 
 [ext_resource type="Script" path="res://scripts/MovableObject.gd" id="1_rr7la"]
-[ext_resource type="Texture2D" uid="uid://dl4py775nhtl6" path="res://assets/crate.png" id="2_fr5bu"]
+[ext_resource type="Texture2D" uid="uid://43x1svygauaa" path="res://assets/shelf.png" id="2_8rrr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
-size = Vector2(302, 254)
+size = Vector2(273, 505)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
-size = Vector2(302, 254)
+size = Vector2(274, 506)
 
-[node name="Crate" type="CharacterBody2D"]
+[node name="Shelf" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 11
 script = ExtResource("1_rr7la")
+WEIGHT = 0.1
 interaction_label = "!!!"
 interaction_type = "move"
 interaction_value = "5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.38419e-07, -4.76837e-07)
-texture = ExtResource("2_fr5bu")
+texture = ExtResource("2_8rrr3")
 
 [node name="ObjectCollider" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(2.5, -0.5)
 shape = SubResource("RectangleShape2D_etwut")
 
 [node name="InteractableArea" type="Area2D" parent="."]
@@ -31,7 +32,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
-position = Vector2(-1, 0)
+position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_jp4yi")
 
 [connection signal="input_event" from="InteractableArea" to="." method="_on_interactable_area_input_event"]

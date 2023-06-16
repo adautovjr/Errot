@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xsbniu78fjn5"
-path="res://.godot/imported/key-spritesheet.png-e524c281c0d1e7358f9319ef2ae749a1.ctex"
+uid="uid://cbxghp1uqhkgc"
+path="res://.godot/imported/janela_arredondada.png-9a5c77c36c4ff236d6539d8f567aa35c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/key-spritesheet.png"
-dest_files=["res://.godot/imported/key-spritesheet.png-e524c281c0d1e7358f9319ef2ae749a1.ctex"]
+source_file="res://assets/Objects/Objetos de Quarto/janela_arredondada.png"
+dest_files=["res://.godot/imported/janela_arredondada.png-9a5c77c36c4ff236d6539d8f567aa35c.ctex"]
 
 [params]
 

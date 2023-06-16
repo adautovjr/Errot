@@ -1,9 +1,10 @@
 class_name Moveable_Object extends InteractableObject
 
 const GRIP = 0.15
-const WEIGHT = 0.25
 
+@export var WEIGHT = 0.25
 var holdingObject = false
+var pushingObject = false
 var drop_point
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -13,6 +14,7 @@ func _ready():
 
 func interaction_method(value):
 	slide(Vector2(value, 0.0))
+	pushingObject = true
 	pass
 
 
@@ -31,8 +33,10 @@ func _physics_process(_delta):
 			velocity.y += gravity * WEIGHT
 		else:
 			velocity.y = 0.0
-			velocity.x = lerp(velocity.x, 0.0, GRIP)
+			if not pushingObject:
+				velocity.x = lerp(velocity.x, 0.0, GRIP)
 		move_and_slide()
+		pushingObject = false
 		return
 	
 	var min_distance = 10

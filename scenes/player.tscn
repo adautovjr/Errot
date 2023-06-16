@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://wc7ov6dbhy0p"]
+[gd_scene load_steps=119 format=3 uid="uid://wc7ov6dbhy0p"]
 
 [ext_resource type="Script" path="res://scripts/playermovement.gd" id="1_yxpks"]
 [ext_resource type="Texture2D" uid="uid://cotjv65uid46b" path="res://assets/Protag Spritesheets/IDLE/idle_spritesheet_(150x165).png" id="2_gklmr"]
@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://m022k5hkfuee" path="res://assets/Protag Spritesheets/PULL/pull_spritesheet_(150x165).png" id="4_bnuar"]
 [ext_resource type="Script" path="res://scripts/playerdetection.gd" id="5_7wj63"]
 [ext_resource type="Texture2D" uid="uid://ddcpjgdt2cbph" path="res://assets/Protag Spritesheets/PUSH/push_spritesheet_(150x165).png" id="5_jtpxr"]
-[ext_resource type="LabelSettings" uid="uid://dr3emear65uue" path="res://configs/font.tres" id="6_pfw42"]
 [ext_resource type="Texture2D" uid="uid://df317p7n2e1he" path="res://assets/Protag Spritesheets/WALK/walk_spritesheet_(150x165).png" id="6_xm5vf"]
 [ext_resource type="Texture2D" uid="uid://dnth2jo8rdq8d" path="res://assets/Protag Spritesheets/MAGIC/magic_spritesheet_(150x165).png" id="6_yf2rt"]
+[ext_resource type="Texture2D" uid="uid://djflfcv3oljjs" path="res://assets/UI Torre Errot/magic1_spritesheet.png" id="9_mr7kd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibxbg"]
 atlas = ExtResource("2_q1peu")
@@ -712,6 +712,98 @@ height = 286.0
 radius = 26.0
 height = 294.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5oat"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(0, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5erk"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(92, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0p4u"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(184, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo4nt"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(276, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il0wt"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(368, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy04q"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(460, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2i0m"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(552, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiwxm"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(644, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eciuv"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(736, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4ft6"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(828, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjrbq"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(920, 0, 92, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl0jx"]
+atlas = ExtResource("9_mr7kd")
+region = Rect2(1012, 0, 92, 89)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kmk6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5oat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5erk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0p4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo4nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il0wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy04q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2i0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiwxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eciuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4ft6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjrbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl0jx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 13
@@ -738,23 +830,25 @@ metadata/_edit_group_ = true
 [node name="DetectionCollision" type="CollisionShape2D" parent="DetectionArea2D"]
 shape = SubResource("CapsuleShape2D_tar3q")
 
-[node name="InteractionLabel" type="Label" parent="."]
-z_index = 1
+[node name="Indicator" type="Control" parent="."]
+visible = false
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -86.0
-offset_top = -26.0
-offset_right = 86.0
-offset_bottom = -9.0
+offset_top = -278.0
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
-label_settings = ExtResource("6_pfw42")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Indicator"]
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_kmk6s")
+frame_progress = 0.399767
 
 [connection signal="area_entered" from="DetectionArea2D" to="DetectionArea2D" method="_on_area_entered"]
 [connection signal="area_exited" from="DetectionArea2D" to="DetectionArea2D" method="_on_area_exited"]

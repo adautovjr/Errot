@@ -1,3 +1,4 @@
 [gd_resource type="Theme" format=3 uid="uid://bb30ywpk5cjeq"]
 
 [resource]
+Label/font_sizes/font_size = 72

@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var interactions_in_range: Array[InteractableObject] = []
 var is_moving = false
 var is_using_magic = false
+var looking_at_right = true
 
 
 func _ready():
@@ -47,9 +48,15 @@ func _get_animation(delta):
 		return 
 	if is_moving:
 		if velocity.x < 0:
-			animated_sprite.play("push")
+			if looking_at_right:
+				animated_sprite.play("pull")
+			else:
+				animated_sprite.play("push")
 			return 
-		animated_sprite.play("pull")
+		if looking_at_right:
+			animated_sprite.play("push")
+		else:
+			animated_sprite.play("pull")
 		return 
 	animated_sprite.play("run")
 	return 
@@ -88,8 +95,10 @@ func _reset_detection_area_position(direction):
 
 	if (velocity.x > 0):
 		detection_area.position = Vector2(70, -3)
+		looking_at_right = true
 	else:
 		detection_area.position = Vector2(-70, -3)
+		looking_at_right = false
 
 ############## Interactions ##############
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c421vqs2o015x"
-path="res://.godot/imported/push-spritesheet.png-ee63ca9cb2f6d5bca2b64b85e7d50d5f.ctex"
+uid="uid://cc6qse6mplhvd"
+path="res://.godot/imported/key_icon_spritesheet.png-ea3a30dd206734d14371c41ad199234e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/push-spritesheet.png"
-dest_files=["res://.godot/imported/push-spritesheet.png-ee63ca9cb2f6d5bca2b64b85e7d50d5f.ctex"]
+source_file="res://assets/UI Torre Errot/key_icon_spritesheet.png"
+dest_files=["res://.godot/imported/key_icon_spritesheet.png-ea3a30dd206734d14371c41ad199234e.ctex"]
 
 [params]
 

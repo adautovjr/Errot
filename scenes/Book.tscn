@@ -143,7 +143,7 @@ offset_top = -115.0
 offset_right = 131.0
 offset_bottom = -92.0
 theme = ExtResource("4_lrdey")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 72
 text = "You just learnt a new spell!"
 label_settings = ExtResource("3_0ykss")
 horizontal_alignment = 1
@@ -152,12 +152,13 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 offset_left = -129.0
 offset_top = -115.0
 offset_right = 131.0
 offset_bottom = -92.0
 theme = ExtResource("4_lrdey")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 72
 text = "Try moving objects around with your mouse!"
 label_settings = ExtResource("3_0ykss")
 horizontal_alignment = 1

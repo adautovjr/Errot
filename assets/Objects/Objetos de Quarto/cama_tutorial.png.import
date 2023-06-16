@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1wba7q15xk0"
-path="res://.godot/imported/magic-spritesheet.png-dc10fc517566e474a696e86b096c55ca.ctex"
+uid="uid://ctorkjr7dqehr"
+path="res://.godot/imported/cama_tutorial.png-4ecf56f74b665ace4769cda8ce773cb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/magic-spritesheet.png"
-dest_files=["res://.godot/imported/magic-spritesheet.png-dc10fc517566e474a696e86b096c55ca.ctex"]
+source_file="res://assets/Objects/Objetos de Quarto/cama_tutorial.png"
+dest_files=["res://.godot/imported/cama_tutorial.png-4ecf56f74b665ace4769cda8ce773cb5.ctex"]
 
 [params]
 
