@@ -67,9 +67,9 @@ func _get_animation(delta):
 func _get_action():
 	if is_using_magic:
 		return
-	if Input.is_action_pressed("interact"):
-		_on_interaction()
 
+	if is_on_floor() and Input.is_action_pressed("interact"):
+		_on_interaction()
 	else:
 		is_moving = false
 
