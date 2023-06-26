@@ -9,6 +9,7 @@ const PUSH_FORCE = 800.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var detection_area = $DetectionArea2D
+@onready var IndicatorSprite = $Indicator/AnimatedSprite2D
 
 var interactions_in_range: Array[InteractableObject] = []
 var is_moving = false
@@ -18,6 +19,7 @@ var looking_at_right = true
 
 func _ready():
 	Events.connect("is_using_magic", _handle_using_magic)
+	IndicatorSprite.play("default")
 
 
 func _physics_process(delta):

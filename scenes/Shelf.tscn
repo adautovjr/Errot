@@ -11,7 +11,7 @@ size = Vector2(274, 506)
 
 [node name="Shelf" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 11
+collision_mask = 9
 script = ExtResource("1_rr7la")
 WEIGHT = 0.1
 interaction_label = "!!!"
@@ -25,6 +25,7 @@ texture = ExtResource("2_8rrr3")
 [node name="ObjectCollider" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -0.5)
 shape = SubResource("RectangleShape2D_etwut")
+one_way_collision = true
 
 [node name="InteractableArea" type="Area2D" parent="."]
 collision_layer = 8

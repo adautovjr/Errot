@@ -7,6 +7,7 @@ func _on_area_entered(area):
 		this.interactions_in_range.insert(0, parent)
 		#this.get_node("InteractionLabel").text = parent.interaction_label
 		this.get_node("Indicator").show()
+		
 
 func _on_area_exited(area):
 	var this = get_parent()

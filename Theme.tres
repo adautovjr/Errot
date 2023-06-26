@@ -1,4 +1,12 @@
-[gd_resource type="Theme" format=3 uid="uid://bb30ywpk5cjeq"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bb30ywpk5cjeq"]
+
+[ext_resource type="StyleBox" path="res://assets/ui/TransparentPanel.tres" id="1_hxy6n"]
 
 [resource]
+Button/styles/disabled = ExtResource("1_hxy6n")
+Button/styles/focus = ExtResource("1_hxy6n")
+Button/styles/hover = ExtResource("1_hxy6n")
+Button/styles/normal = ExtResource("1_hxy6n")
+Button/styles/pressed = ExtResource("1_hxy6n")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 72

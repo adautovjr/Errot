@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Events="*res://scripts/Events.gd"
 GameManager="*res://scripts/GameManager.gd"
+SaveManager="*res://scripts/SaveManager.gd"
 
 [display]
 
