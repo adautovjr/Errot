@@ -19,6 +19,7 @@ var looking_at_right = true
 
 func _ready():
 	Events.connect("is_using_magic", _handle_using_magic)
+	Events.connect("move_player_to", _move_to_position)
 	IndicatorSprite.play("default")
 
 
@@ -72,6 +73,8 @@ func _get_action():
 
 	if is_on_floor() and Input.is_action_pressed("interact"):
 		_on_interaction()
+	elif is_on_floor() and Input.is_action_just_released("interact"):
+		_on_interaction(true)
 	else:
 		is_moving = false
 
@@ -104,7 +107,7 @@ func _reset_detection_area_position(direction):
 
 ############## Interactions ##############
 
-func _on_interaction():
+func _on_interaction(is_just_pressed = false):
 	if (interactions_in_range.size() == 0):
 		return
 
@@ -116,11 +119,14 @@ func _on_interaction():
 			current_interaction.interaction_method(force * PUSH_FORCE)
 			is_moving = true
 		"method":
-			print("call method")
-			current_interaction.interaction_method(null)
+			if is_just_pressed:
+				current_interaction.interaction_method(null)
 		"none":
 			print("Undefined interaction")
 
 
 func _handle_using_magic(value):
 	is_using_magic = value
+
+func _move_to_position(pos):
+	position = pos

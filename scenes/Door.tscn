@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://jv2aqmh461tf"]
+
+[ext_resource type="Texture2D" uid="uid://cqkbpious2hd8" path="res://assets/Objects/Objetos de Quarto/porta_tutorial.png" id="1_eora6"]
+[ext_resource type="Script" path="res://scripts/Door.gd" id="2_18rn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f36sd"]
+size = Vector2(56.8, 184.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q2gm"]
+
+[node name="Door" type="CharacterBody2D"]
+scale = Vector2(2.5, 2.5)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_18rn3")
+interaction_label = "Enter"
+interaction_type = "method"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eora6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.2)
+shape = SubResource("RectangleShape2D_f36sd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8q2gm")
+disabled = true

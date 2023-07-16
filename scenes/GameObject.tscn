@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbtsjagbfjcpi"]
 
-[ext_resource type="Script" path="res://scripts/GameObject.gd" id="1_sihqk"]
+[ext_resource type="Script" path="res://scripts/InteractableObject.gd" id="1_sihqk"]
 [ext_resource type="Texture2D" uid="uid://cg67bkty81sm1" path="res://assets/Kings and Pigs/Sprites/08-Box/Idle.png" id="1_x00bp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
