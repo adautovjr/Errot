@@ -41,11 +41,7 @@ func _physics_process(_delta):
 
 func startGame():
 	play_button_sound()
-	if not SaveManager.get_seen_tutorial():
-		howToPlay(true)
-		SaveManager.set_seen_tutorial()
-		return
-	get_tree().change_scene_to_packed(load("res://levels/level_1.tscn"))
+	get_tree().change_scene_to_packed(load("res://levels/intro1.tscn"))
 
 
 

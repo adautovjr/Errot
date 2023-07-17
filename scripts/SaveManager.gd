@@ -9,7 +9,6 @@ var best_score = 0
 func _ready():
 	load_data()
 	load_best_score()
-	Events.connect("seen_tutorial", set_seen_tutorial)
 
 
 func load_data():

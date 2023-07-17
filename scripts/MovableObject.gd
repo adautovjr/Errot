@@ -38,12 +38,8 @@ func _physics_process(_delta):
 		move_and_slide()
 		pushingObject = false
 		return
-	
-	var min_distance = 10
-	var max_distance = 100
+
 	var force_direction = 5 * ((get_global_mouse_position() - global_position))
-	var len = force_direction.length()
-	var norm = force_direction.normalized()
 	
 	velocity = force_direction
 	move_and_slide()

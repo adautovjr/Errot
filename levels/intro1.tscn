@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://s3s1w7qb3w4a"]
+[gd_scene load_steps=21 format=3 uid="uid://s3s1w7qb3w4a"]
 
+[ext_resource type="Script" path="res://levels/intro1.gd" id="1_pf52y"]
 [ext_resource type="Texture2D" uid="uid://dan3x7lve27hy" path="res://assets/Cutscenes/Intro I/Intro_part_1_frame_1.png" id="1_pi4uj"]
 [ext_resource type="Texture2D" uid="uid://ddhe3u7tseng1" path="res://assets/Cutscenes/Intro I/Intro_part_1_frame_2.png" id="2_2fdnk"]
 [ext_resource type="Theme" uid="uid://bb30ywpk5cjeq" path="res://Theme.tres" id="2_l78bk"]
@@ -1524,6 +1525,7 @@ _data = {
 libraries = {
 "": SubResource("AnimationLibrary_3dmwj")
 }
+script = ExtResource("1_pf52y")
 
 [node name="Frames" type="Control" parent="AnimationPlayer"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -1603,7 +1605,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[center]Nesta cidade, por sua vez, existia perto de uma torre, a sua fonte de magia.[/center]"
+text = "[center]Onde existia uma torre, a sua fonte de magia.[/center]"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -1636,7 +1638,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[center]E, nesta torre, vivia uma pessoa. A qual, por sua vez, era responsável por gerenciar a mágica que fluía entre os dois espaços.[/center]"
+text = "[center]E, nesta torre, vivia uma pessoa responsável por gerenciar a mágica que fluía entre os dois espaços.[/center]"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -1668,7 +1670,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[center]Uma única pessoa que vivia dentro dessa solitária torre. Os cidadãos nomearam essa pessoa de “Alquimista” - dando-o esse título devido à suas habilidades mágicas…[/center]"
+text = "[center]O chamaram de alquimista...[/center]"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -2169,3 +2171,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("16_faye8")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]

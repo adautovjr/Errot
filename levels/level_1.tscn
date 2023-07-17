@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://b810yyvnlw3sd"]
+[gd_scene load_steps=20 format=3 uid="uid://b810yyvnlw3sd"]
 
 [ext_resource type="PackedScene" uid="uid://wc7ov6dbhy0p" path="res://scenes/player.tscn" id="2_0p20i"]
 [ext_resource type="TileSet" uid="uid://dk6bvys54pdci" path="res://Tileset-128.tres" id="2_fqq53"]
 [ext_resource type="PackedScene" uid="uid://0e4ukwe43nrw" path="res://scenes/MovableObject.tscn" id="3_qg4f4"]
-[ext_resource type="Texture2D" uid="uid://ctorkjr7dqehr" path="res://assets/Objects/Objetos de Quarto/cama_tutorial.png" id="5_5shu3"]
 [ext_resource type="PackedScene" uid="uid://bqgq33nq1amtg" path="res://scenes/Book.tscn" id="5_23y6m"]
 [ext_resource type="Texture2D" uid="uid://d0lwfwub06k15" path="res://assets/Objects/Objetos de Quarto/janela_arredondada_cortina.png" id="6_oga2l"]
 [ext_resource type="Texture2D" uid="uid://bm6admkksuyya" path="res://assets/Objects/Objetos de Quarto/estante_tutorial.png" id="7_l5ybm"]
@@ -43,11 +42,6 @@ layer_0/tile_data = PackedInt32Array(196607, 131072, 2, 131072, 131072, 2, 13107
 position = Vector2(-2582, 1369)
 
 [node name="Decorations" type="Node2D" parent="."]
-
-[node name="Bed" type="Sprite2D" parent="Decorations"]
-position = Vector2(-2640, 1380)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("5_5shu3")
 
 [node name="JanelaArredondadaCortina" type="Sprite2D" parent="Decorations"]
 position = Vector2(-1887, 1258)
