@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl2abjqvxon6g"]
+[gd_scene load_steps=14 format=3 uid="uid://bl2abjqvxon6g"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_pujk4"]
 [ext_resource type="Script" path="res://scripts/StartScreenInterface.gd" id="2_dtaov"]
+[ext_resource type="Texture2D" uid="uid://obh0vag1lh52" path="res://assets/Menu/title_screen.png" id="3_0fco3"]
 [ext_resource type="Theme" uid="uid://bb30ywpk5cjeq" path="res://Theme.tres" id="3_dgu8b"]
 [ext_resource type="StyleBox" uid="uid://dqwoy5w5txdrm" path="res://assets/ui/TransparentPanel.tres" id="4_d24ai"]
 [ext_resource type="Texture2D" uid="uid://cn7tml07jpqat" path="res://assets/title.png" id="5_fssbp"]
+[ext_resource type="Texture2D" uid="uid://dmvr8f4y0hdjy" path="res://assets/Menu/titulo.png" id="6_oosos"]
 [ext_resource type="Texture2D" uid="uid://8n56p8v2hwh1" path="res://assets/button.png" id="6_xao5y"]
 [ext_resource type="Texture2D" uid="uid://bvqh1eaykabs4" path="res://assets/background-ui.png" id="7_ev85g"]
 [ext_resource type="Texture2D" uid="uid://b4u6avwdlhqv7" path="res://assets/cards.png" id="8_kumua"]
@@ -27,6 +29,14 @@ metadata/_edit_lock_ = true
 [node name="StartScreenInterface" type="CanvasLayer" parent="."]
 script = ExtResource("2_dtaov")
 
+[node name="TextureRect" type="TextureRect" parent="StartScreenInterface"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0fco3")
+
 [node name="MenuContainer" type="MarginContainer" parent="StartScreenInterface"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,6 +58,7 @@ theme_override_styles/panel = ExtResource("4_d24ai")
 
 [node name="Panel" type="Panel" parent="StartScreenInterface/MenuContainer/StartMenu"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_styles/panel = ExtResource("4_d24ai")
 
 [node name="MarginContainer" type="MarginContainer" parent="StartScreenInterface/MenuContainer/StartMenu/Panel"]
@@ -66,20 +77,29 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_d24ai")
 
+[node name="TextureRect" type="TextureRect" parent="StartScreenInterface/MenuContainer/StartMenu/Panel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 565.0
+grow_horizontal = 2
+texture = ExtResource("6_oosos")
+expand_mode = 3
+
 [node name="VBoxContainer" type="VBoxContainer" parent="StartScreenInterface/MenuContainer/StartMenu/Panel/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -48.0
-offset_right = 48.0
+offset_left = -260.0
+offset_right = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Control" type="Control" parent="StartScreenInterface/MenuContainer/StartMenu/Panel/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(500, 300)
+custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 

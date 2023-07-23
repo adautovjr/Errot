@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://43x1svygauaa" path="res://assets/shelf.png" id="2_8rrr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
-size = Vector2(273, 505)
+size = Vector2(263, 501)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
-size = Vector2(274, 506)
+size = Vector2(264, 502)
 
 [node name="Shelf" type="CharacterBody2D"]
 collision_layer = 8

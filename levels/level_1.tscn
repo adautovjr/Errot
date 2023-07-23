@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b810yyvnlw3sd"]
+[gd_scene load_steps=18 format=3 uid="uid://b810yyvnlw3sd"]
 
 [ext_resource type="PackedScene" uid="uid://wc7ov6dbhy0p" path="res://scenes/player.tscn" id="2_0p20i"]
 [ext_resource type="TileSet" uid="uid://dk6bvys54pdci" path="res://Tileset-128.tres" id="2_fqq53"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cbxghp1uqhkgc" path="res://assets/Objects/Objetos de Quarto/janela_arredondada.png" id="8_jimxf"]
 [ext_resource type="Texture2D" uid="uid://dl4py775nhtl6" path="res://assets/crate.png" id="10_4m2j3"]
 [ext_resource type="Texture2D" uid="uid://coul2t73fj8u1" path="res://assets/hairdresser.png" id="11_oln48"]
-[ext_resource type="Texture2D" uid="uid://ukdpnc3qdo4l" path="res://assets/window.png" id="12_qoj38"]
-[ext_resource type="Texture2D" uid="uid://jkyfyb1d451r" path="res://assets/lamp.png" id="12_uax3s"]
 [ext_resource type="Texture2D" uid="uid://u14p5b5m1v8" path="res://assets/sidebed.png" id="13_lwtf1"]
 [ext_resource type="PackedScene" uid="uid://dlvny0qchel5f" path="res://scenes/Shelf.tscn" id="14_61etl"]
 [ext_resource type="Texture2D" uid="uid://cqkbpious2hd8" path="res://assets/Objects/Objetos de Quarto/porta_tutorial.png" id="15_2j2q6"]
@@ -90,10 +88,6 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_c12c1")
 one_way_collision = true
 
-[node name="Lamp" type="Sprite2D" parent="Decorations"]
-position = Vector2(-620, 998)
-texture = ExtResource("12_uax3s")
-
 [node name="Sidebed" type="Sprite2D" parent="Decorations"]
 position = Vector2(-2294, 1409)
 texture = ExtResource("13_lwtf1")
@@ -105,19 +99,10 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_aaoxv")
 one_way_collision = true
 
-[node name="Lamp2" type="Sprite2D" parent="Decorations"]
-position = Vector2(1122, 857)
-texture = ExtResource("12_uax3s")
-
 [node name="PortaTutorial" type="Sprite2D" parent="Decorations"]
 position = Vector2(3808, -872)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("15_2j2q6")
-
-[node name="Window" type="Sprite2D" parent="Decorations"]
-position = Vector2(1774, -1007)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_qoj38")
 
 [node name="JanelaArredondada2" type="Sprite2D" parent="Decorations"]
 position = Vector2(2514, 231)
@@ -128,10 +113,6 @@ texture = ExtResource("8_jimxf")
 position = Vector2(3171, 266)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_oga2l")
-
-[node name="Lamp3" type="Sprite2D" parent="Decorations"]
-position = Vector2(1016, -151)
-texture = ExtResource("12_uax3s")
 
 [node name="Interactables" type="Node2D" parent="."]
 

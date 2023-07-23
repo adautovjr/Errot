@@ -9,3 +9,5 @@ signal is_using_magic(value)
 signal play_click_sound
 signal play_tick_sound
 signal move_player_to(position)
+signal set_active_item(sprite)
+signal set_inactive_item

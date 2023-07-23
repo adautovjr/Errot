@@ -2,8 +2,13 @@ class_name Door extends InteractableObject
 
 @export var go_to: Node2D
 @export var packed_scene: PackedScene
+@export var is_locked: bool = false
 
 func interaction_method(_value):
+	if is_locked:
+		if not GameManager.active_item_sprite == "key":
+			return
+
 	if packed_scene is PackedScene:
 		get_tree().change_scene_to_packed(packed_scene)
 		return
