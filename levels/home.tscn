@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://0htqjxm1goik"]
+[gd_scene load_steps=27 format=3 uid="uid://0htqjxm1goik"]
 
 [ext_resource type="TileSet" uid="uid://dk6bvys54pdci" path="res://Tileset-128.tres" id="1_ftns2"]
 [ext_resource type="Texture2D" uid="uid://ctorkjr7dqehr" path="res://assets/Objects/Objetos de Quarto/cama_tutorial.png" id="2_scoxr"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://u14p5b5m1v8" path="res://assets/sidebed.png" id="9_4vgpc"]
 [ext_resource type="PackedScene" uid="uid://jv2aqmh461tf" path="res://scenes/Door.tscn" id="10_a4xpc"]
 [ext_resource type="PackedScene" uid="uid://cnud56eg7p2jk" path="res://levels/intro2.tscn" id="11_p3cha"]
-[ext_resource type="Script" path="res://scripts/Door.gd" id="11_wbaqp"]
 [ext_resource type="Texture2D" uid="uid://bgs4i3ovronbo" path="res://assets/Objects/Objetos de Sala/janela_quadrada.png" id="12_onoeh"]
 [ext_resource type="Script" path="res://scripts/Key.gd" id="14_84i3u"]
 [ext_resource type="Texture2D" uid="uid://dsmbxitd6enmi" path="res://assets/Objects/Objetos de Sala/sofá_casa.png" id="14_lvjth"]
@@ -135,23 +134,16 @@ one_way_collision = true
 
 [node name="Door" parent="Decorations" node_paths=PackedStringArray("go_to") instance=ExtResource("10_a4xpc")]
 position = Vector2(-1227, 1559)
-script = ExtResource("11_wbaqp")
 go_to = NodePath("../Door3")
-packed_scene = null
-is_locked = false
 
 [node name="Door2" parent="Decorations" instance=ExtResource("10_a4xpc")]
 position = Vector2(2125, 1304)
-script = ExtResource("11_wbaqp")
 packed_scene = ExtResource("11_p3cha")
 is_locked = true
 
 [node name="Door3" parent="Decorations" node_paths=PackedStringArray("go_to") instance=ExtResource("10_a4xpc")]
 position = Vector2(-570, 1559)
-script = ExtResource("11_wbaqp")
 go_to = NodePath("../Door")
-packed_scene = null
-is_locked = false
 
 [node name="JanelaQuadrada" type="Sprite2D" parent="Decorations"]
 position = Vector2(565, 1375)

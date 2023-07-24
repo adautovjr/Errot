@@ -1,15 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://bqgq33nq1amtg"]
 
 [ext_resource type="Script" path="res://scripts/Book.gd" id="2_71o02"]
+[ext_resource type="Texture2D" uid="uid://cvwkytfv045w2" path="res://assets/Objects/livro_de_magia.png" id="2_n0p0x"]
 [ext_resource type="LabelSettings" uid="uid://dr3emear65uue" path="res://configs/font.tres" id="3_0ykss"]
-[ext_resource type="Texture2D" uid="uid://dv2qalrf4gnsh" path="res://icon.svg" id="3_g2cmd"]
 [ext_resource type="Theme" uid="uid://bb30ywpk5cjeq" path="res://Theme.tres" id="4_lrdey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etwut"]
-size = Vector2(171, 170)
+size = Vector2(213, 264)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp4yi"]
-size = Vector2(171, 170)
+size = Vector2(213, 264)
 
 [sub_resource type="Animation" id="Animation_adh87"]
 length = 0.001
@@ -140,12 +140,14 @@ interaction_type = "method"
 interaction_value = "telekinesis"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.32813, 1.32813)
-texture = ExtResource("3_g2cmd")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_n0p0x")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_etwut")
+one_way_collision = true
 
 [node name="InteractableArea" type="Area2D" parent="."]
 collision_layer = 8
